@@ -1,0 +1,36 @@
+# Gerkenshop E-Commerce App
+
+## Project Structure
+- backend
+  - api
+    - products
+    - categories
+    - orders
+    - customers
+  - models
+  - migrations
+  - scripts
+    - shopify-import.js
+  - middleware
+  - server.js
+- frontend
+  - src
+    - components
+      - ProductCatalog
+      - ShoppingCart
+      - Checkout
+      - UserProfile
+    - App.js
+  - public
+    - index.html
+- admin
+  - src
+    - components
+      - ProductManagement
+      - OrderManagement
+      - Analytics
+    - App.js
+- .env.example
+- docker-compose.yml
+- backend_package.json
+- frontend_package.json
