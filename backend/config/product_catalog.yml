@@ -1,0 +1,55 @@
+collections:
+  - name: "Warhammer Figurines"
+    description: "A collection of finely crafted Warhammer figurines ready for your tabletop battles."
+    products:
+      - title: "Warhammer 40K Space Marine"
+        description: "A detailed Space Marine figurine from Warhammer 40K, perfect for collectors and gamers."
+        price: 29.99
+        images:
+          - "url_to_image_1.jpg"
+          - "url_to_image_2.jpg"
+        variants:
+          - size: "Standard"
+            sku: "W40K-SM-001"
+            inventory: 100
+          - size: "Limited Edition"
+            sku: "W40K-SM-002"
+            inventory: 50
+        tags: ["Warhammer", "Figurine", "40K"]
+
+      - title: "Warhammer Age of Sigmar Stormcast Eternal"
+        description: "Highly detailed Stormcast Eternal figurine, ready to lead your forces in battle."
+        price: 34.99
+        images:
+          - "url_to_image_3.jpg"
+        variants:
+          - size: "Standard"
+            sku: "WAS-STE-001"
+            inventory: 75
+        tags: ["Warhammer", "Figurine", "Age of Sigmar"]
+
+  - name: "3D Printed Goods"
+    description: "High-quality 3D printed goods for fans of tabletop gaming."
+    products:
+      - title: "3D Printed Terrain: Sci-Fi Ruins"
+        description: "Create immersive battlefields with our 3D printed Sci-Fi ruins."
+        price: 19.99
+        images:
+          - "url_to_image_4.jpg"
+        variants:
+          - size: "Medium"
+            sku: "3D-SR-001"
+            inventory: 120
+        tags: ["3D Printed", "Terrain", "Gaming"]
+
+seasonal_products:
+  - title: "Easter Limited Edition Warhammer Figurine"
+    description: "Celebrate Easter with our limited edition Warhammer figurine featuring thematic designs."
+    price: 39.99
+    images:
+      - "url_to_easter_image.jpg"
+    variants:
+      - size: "Standard"
+        sku: "EASTER-WF-001"
+        inventory: 30
+    tags: ["Seasonal", "Easter", "Warhammer"]
