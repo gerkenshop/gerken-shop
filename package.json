@@ -1,0 +1,21 @@
+{
+  "name": "layerforge-shopify-stack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shopify-ready theme and lightweight backend scaffold for a 3D commerce business.",
+  "scripts": {
+    "start": "node app/server.js",
+    "preview": "node app/server.js",
+    "check:json": "node scripts/check-json.js",
+    "shopify": "shopify",
+    "theme:package": "shopify theme package --path .",
+    "theme:push:dev": "shopify theme push --path . --environment development --json",
+    "theme:push:staging": "shopify theme push --path . --environment staging --json",
+    "theme:push:prod": "shopify theme push --path . --environment production --json",
+    "theme:dev": "shopify theme dev --path .",
+    "theme:list": "shopify theme list --path ."
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.93.2"
+  }
+}

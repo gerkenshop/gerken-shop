@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+*.zip
+.env
+.env.local
+.env.*.local
+shopify.theme.toml
+npm-debug.log*

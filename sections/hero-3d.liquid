@@ -1,0 +1,55 @@
+<section class="hero-3d">
+  <div class="page-width hero-3d__grid">
+    <div class="hero-3d__copy">
+      <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <div class="rte">
+        <p>{{ section.settings.text }}</p>
+      </div>
+      <div class="hero-3d__actions">
+        <a class="button button--primary" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label }}</a>
+        <a class="button button--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label }}</a>
+      </div>
+      <div class="hero-3d__stats">
+        <article><strong>24h</strong><span>fast quote turnaround</span></article>
+        <article><strong>5+</strong><span>core materials to upsell</span></article>
+        <article><strong>OS 2.0</strong><span>Shopify-ready sections</span></article>
+      </div>
+    </div>
+    <div class="hero-3d__panel">
+      <div class="hero-card hero-card--accent">
+        <span>Best seller idea</span>
+        <strong>Custom RC Chassis Kit</strong>
+        <p>Merchandize structural nylon parts, niche accessories, and bundled upgrades.</p>
+      </div>
+      <div class="hero-panel-grid">
+        <div class="hero-card">
+          <span>Shop mode</span>
+          <strong>Cart + Quote</strong>
+          <p>Ready-made SKUs and custom fabrication requests in one storefront.</p>
+        </div>
+        <div class="hero-card">
+          <span>For growth</span>
+          <strong>Higher AOV</strong>
+          <p>Material, finish, and rush lead-time options help lift average order value.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "3D hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Precision 3D Commerce" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Sell ready-made prints and custom fabrication from one Shopify storefront." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Built for makers, productized services, and low-volume manufacturing." },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Shop Products" },
+    { "type": "url", "id": "primary_link", "label": "Primary button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Request a Custom Build" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" }
+  ],
+  "presets": [{ "name": "3D hero" }]
+}
+{% endschema %}

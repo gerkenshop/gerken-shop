@@ -1,0 +1,30 @@
+<section class="category-strip-section">
+  <div class="page-width">
+    <div class="category-strip">
+      {% for block in section.blocks %}
+        <a class="category-card" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.title }}</strong>
+          <p>{{ block.settings.subtitle }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category strip",
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Category strip" }]
+}
+{% endschema %}

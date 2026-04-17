@@ -1,0 +1,29 @@
+<section class="advantage-grid-section">
+  <div class="page-width">
+    <div class="advantage-grid">
+      {% for block in section.blocks %}
+        <article class="advantage-card" {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.title }}</strong>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantage grid",
+  "blocks": [
+    {
+      "type": "advantage",
+      "name": "Advantage",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Advantage grid" }]
+}
+{% endschema %}

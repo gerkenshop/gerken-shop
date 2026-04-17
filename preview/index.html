@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LayerForge Local Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/preview/preview.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">LF</div>
+      <div>
+        <p class="eyebrow">3D commerce preview</p>
+        <h1>LayerForge</h1>
+      </div>
+    </div>
+    <nav>
+      <a href="#catalog">Catalog</a>
+      <a href="#configurator">Configurator</a>
+      <a href="#quote">Quote</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="card card-large">
+        <p class="eyebrow">Shopify + local preview</p>
+        <h2>Open the UI now, test pricing options, and preview your 3D storefront without waiting on Shopify.</h2>
+        <p class="muted">This local preview mirrors the custom 3D storefront direction and uses the backend scaffold for quote capture and pricing previews.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#catalog">Browse products</a>
+          <a class="button button-secondary" href="#quote">Request a quote</a>
+        </div>
+      </div>
+      <div class="card card-dark">
+        <span class="eyebrow">Preview status</span>
+        <h3 id="health-status">Checking backend...</h3>
+        <p id="health-message" class="muted light"></p>
+      </div>
+    </section>
+
+    <section id="catalog" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Ready-made products</p>
+          <h3>Catalog preview</h3>
+        </div>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section id="configurator" class="section section-split">
+      <div class="card">
+        <p class="eyebrow">Dynamic configuration</p>
+        <h3>Pricing preview</h3>
+        <form id="config-form" class="stack">
+          <label>
+            Base price
+            <input type="number" name="basePrice" value="79" min="0" step="1">
+          </label>
+          <label>
+            Finish
+            <select name="finish">
+              <option>Standard</option>
+              <option>Fine sanding</option>
+              <option>Paint-ready</option>
+              <option>Premium showroom finish</option>
+            </select>
+          </label>
+          <label>
+            Lead time
+            <select name="leadTime">
+              <option>Standard production</option>
+              <option>Rush 72h</option>
+              <option>Priority 24h quote</option>
+            </select>
+          </label>
+          <button class="button button-primary" type="submit">Calculate</button>
+        </form>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Response</p>
+        <h3>Configured price</h3>
+        <div id="pricing-result" class="pricing-result">
+          <strong>EUR 79.00</strong>
+          <p class="muted">Select finish and lead time to preview pricing logic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Custom fabrication</p>
+          <h3>Quote request</h3>
+        </div>
+      </div>
+      <div class="card">
+        <form id="quote-form" class="quote-grid">
+          <label>
+            Name
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Project type
+            <select name="projectType">
+              <option>Prototype</option>
+              <option>Functional part</option>
+              <option>Retail product</option>
+              <option>Replacement component</option>
+            </select>
+          </label>
+          <label>
+            Material
+            <select name="material">
+              <option>PLA</option>
+              <option>PETG</option>
+              <option>ASA</option>
+              <option>Resin</option>
+              <option>Nylon CF</option>
+            </select>
+          </label>
+          <label>
+            Quantity
+            <input type="number" name="quantity" value="1" min="1">
+          </label>
+          <label class="wide">
+            Notes
+            <textarea name="notes" rows="5" placeholder="Dimensions, tolerance, deadline, color, and whether you already have an STL."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">Send local quote request</button>
+        </form>
+        <div id="quote-result" class="quote-result muted"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/preview/preview.js"></script>
+</body>
+</html>

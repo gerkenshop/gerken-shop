@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-3d",
+      "settings": {
+        "eyebrow": "Precision 3D Commerce",
+        "heading": "Sell ready-made prints and custom fabrication from one Shopify storefront.",
+        "text": "Built for makers, productized services, and low-volume manufacturing. Merchandize stock products, accept custom-print inquiries, and guide buyers into high-margin material upgrades.",
+        "primary_label": "Shop Products",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Request a Custom Build",
+        "secondary_link": "shopify://pages/custom-quote"
+      }
+    },
+    "categories": {
+      "type": "category-strip",
+      "blocks": {
+        "home": {
+          "type": "category",
+          "settings": {
+            "title": "Home",
+            "subtitle": "Workspace upgrades and accessories",
+            "link": "shopify://collections/home-organization"
+          }
+        },
+        "gaming": {
+          "type": "category",
+          "settings": {
+            "title": "Gaming",
+            "subtitle": "Miniatures, keycaps, and collectibles",
+            "link": "shopify://collections/gaming"
+          }
+        },
+        "workshop": {
+          "type": "category",
+          "settings": {
+            "title": "Workshop",
+            "subtitle": "Jigs, mounts, and fixtures",
+            "link": "shopify://collections/workshop"
+          }
+        },
+        "business": {
+          "type": "category",
+          "settings": {
+            "title": "Business",
+            "subtitle": "Display pieces and promo items",
+            "link": "shopify://collections/business"
+          }
+        }
+      },
+      "block_order": ["home", "gaming", "workshop", "business"]
+    },
+    "featured": {
+      "type": "featured-collection-3d",
+      "settings": {
+        "heading": "Popular 3D products",
+        "subheading": "Highlight your best margin-ready items and custom bundles.",
+        "collection": "all",
+        "products_to_show": 8
+      }
+    },
+    "advantages": {
+      "type": "advantage-grid",
+      "blocks": {
+        "a": {
+          "type": "advantage",
+          "settings": {
+            "title": "Custom quote flow",
+            "text": "Capture project details for STL files, production runs, and replacement parts."
+          }
+        },
+        "b": {
+          "type": "advantage",
+          "settings": {
+            "title": "Material-driven upsells",
+            "text": "Surface PETG, ASA, nylon, and resin choices clearly on product pages."
+          }
+        },
+        "c": {
+          "type": "advantage",
+          "settings": {
+            "title": "Shopify-native selling",
+            "text": "Use products, collections, cart, and checkout while keeping your 3D business workflow visible."
+          }
+        }
+      },
+      "block_order": ["a", "b", "c"]
+    }
+  },
+  "order": ["hero", "categories", "featured", "advantages"]
+}

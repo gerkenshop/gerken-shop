@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "quote-form",
+      "settings": {
+        "heading": "Request a Custom 3D Quote",
+        "text": "Use this page for prototypes, replacement parts, retail-ready bundles, and file-based production."
+      }
+    }
+  },
+  "order": ["main"]
+}

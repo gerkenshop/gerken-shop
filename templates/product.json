@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product-3d",
+      "settings": {
+        "show_material_guide": true,
+        "show_lead_time": true,
+        "quote_page": "custom-quote"
+      }
+    },
+    "related": {
+      "type": "featured-collection-3d",
+      "settings": {
+        "heading": "You may also need",
+        "subheading": "Cross-sell compatible parts, add-ons, or similar materials.",
+        "collection": "all",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["main", "related"]
+}

@@ -1,0 +1,16 @@
+[environments.development]
+store = "your-store.myshopify.com"
+password = "shptka_your_theme_access_password"
+unpublished = true
+
+[environments.staging]
+store = "your-store.myshopify.com"
+password = "shptka_your_theme_access_password"
+theme = "123456789012"
+
+[environments.production]
+store = "your-store.myshopify.com"
+password = "shptka_your_theme_access_password"
+theme = "123456789012"
+live = true
+allow-live = true

@@ -1,0 +1,76 @@
+<section class="quote-form-section">
+  <div class="page-width quote-form-section__grid">
+    <div>
+      <p class="section-eyebrow">Custom fabrication</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.text }}</p>
+      <div class="quote-checklist">
+        <div>Prototype parts</div>
+        <div>Retail-ready bundles</div>
+        <div>Replacement components</div>
+        <div>Low-volume production</div>
+      </div>
+    </div>
+
+    <div class="quote-card">
+      {% form 'contact', class: 'quote-form', id: 'CustomQuoteForm' %}
+        {% if form.posted_successfully? %}
+          <p class="form-status form-status--success">Your request was sent. You can now follow up with file upload or pricing details.</p>
+        {% endif %}
+        {{ form.errors | default_errors }}
+
+        <label>
+          Name
+          <input type="text" name="contact[name]" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="contact[email]" required>
+        </label>
+        <label>
+          Phone
+          <input type="tel" name="contact[phone]">
+        </label>
+        <label>
+          Project type
+          <select name="contact[project_type]">
+            <option>Prototype</option>
+            <option>Functional part</option>
+            <option>Retail product</option>
+            <option>Replacement component</option>
+            <option>Display model</option>
+          </select>
+        </label>
+        <label>
+          Target material
+          <select name="contact[target_material]">
+            <option>PLA</option>
+            <option>PETG</option>
+            <option>ASA</option>
+            <option>Resin</option>
+            <option>Nylon CF</option>
+          </select>
+        </label>
+        <label>
+          Quantity
+          <input type="number" name="contact[quantity]" min="1" value="1">
+        </label>
+        <label class="quote-form__wide">
+          Message
+          <textarea name="contact[body]" rows="6" placeholder="Share dimensions, use case, deadline, color, finish, and whether you already have an STL or CAD file."></textarea>
+        </label>
+        <button class="button button--primary" type="submit">Send quote request</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quote form",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Request a Custom 3D Quote" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Use this page for prototypes, replacement parts, retail-ready bundles, and file-based production." }
+  ]
+}
+{% endschema %}

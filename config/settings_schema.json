@@ -1,0 +1,25 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "LayerForge 3D Commerce",
+    "theme_version": "1.0.0",
+    "theme_author": "Henri and Codex",
+    "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes/getting-started/create",
+    "theme_support_url": "https://shopify.dev/docs/storefronts/themes/tools/cli"
+  },
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "LayerForge is a custom Shopify theme for a 3D printing and fabrication business."
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "Brand tagline",
+        "default": "Industrial-grade 3D selling"
+      }
+    ]
+  }
+]

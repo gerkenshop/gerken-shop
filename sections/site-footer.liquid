@@ -1,0 +1,31 @@
+<footer class="site-footer">
+  <div class="page-width site-footer__grid">
+    <div>
+      <p class="section-eyebrow">LayerForge</p>
+      <h2>Built for a 3D business that sells both products and production capacity.</h2>
+    </div>
+    <div>
+      <strong>Store</strong>
+      <ul class="footer-list">
+        <li><a href="/collections/all">All products</a></li>
+        <li><a href="/pages/custom-quote">Custom quote</a></li>
+        <li><a href="{{ routes.cart_url }}">Cart</a></li>
+      </ul>
+    </div>
+    <div>
+      <strong>Services</strong>
+      <ul class="footer-list">
+        <li>Prototype printing</li>
+        <li>Functional parts</li>
+        <li>Low-volume production</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Site footer",
+  "settings": []
+}
+{% endschema %}

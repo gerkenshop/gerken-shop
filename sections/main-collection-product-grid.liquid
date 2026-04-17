@@ -1,0 +1,65 @@
+{% paginate collection.products by section.settings.products_per_page %}
+  <section class="collection-grid-section">
+    <div class="page-width">
+      <div class="section-heading">
+        <div>
+          <p class="section-eyebrow">Catalog</p>
+          <h2>{{ collection.title }}</h2>
+        </div>
+        {% if section.settings.enable_sorting %}
+          <div class="sort-tools">
+            <label for="SortBy">Sort</label>
+            <select id="SortBy" data-sort-by>
+              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+              {% for option in collection.sort_options %}
+                <option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="product-grid">
+        {% for product in collection.products %}
+          <article class="product-card">
+            <a class="product-card__visual" href="{{ product.url }}">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', class: 'product-card__image' }}
+              {% endif %}
+            </a>
+            <div class="product-card__content">
+              <div class="product-card__meta">
+                <span>{{ product.type | default: '3D product' }}</span>
+                <span>{{ product.vendor | default: shop.name }}</span>
+              </div>
+              <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <p>{{ product.description | strip_html | truncatewords: 16 }}</p>
+              <div class="product-card__footer">
+                <strong>{{ product.price | money }}</strong>
+                <a class="button button--secondary" href="{{ product.url }}">View product</a>
+              </div>
+            </div>
+          </article>
+        {% else %}
+          <article class="product-card product-card--empty">
+            <div class="product-card__content">
+              <h3>No products yet</h3>
+              <p>Add Shopify products to populate this collection automatically.</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "Main collection product grid",
+  "settings": [
+    { "type": "range", "id": "products_per_page", "label": "Products per page", "min": 4, "max": 24, "step": 4, "default": 12 },
+    { "type": "checkbox", "id": "enable_sorting", "label": "Enable sorting", "default": true },
+    { "type": "checkbox", "id": "enable_filtering", "label": "Enable filtering", "default": true }
+  ]
+}
+{% endschema %}

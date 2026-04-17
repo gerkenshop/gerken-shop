@@ -1,0 +1,106 @@
+{% assign material_guide = product.metafields.custom.material_guide.value %}
+{% assign lead_time = product.metafields.custom.lead_time.value %}
+
+<section class="main-product-3d">
+  <div class="page-width product-layout">
+    <div class="product-gallery-card">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '480, 720, 980, 1200, 1400', class: 'product-gallery-card__image' }}
+      {% else %}
+        <div class="product-gallery-card__placeholder"></div>
+      {% endif %}
+    </div>
+
+    <div class="product-info-card">
+      <p class="section-eyebrow">3D product</p>
+      <h1>{{ product.title }}</h1>
+      <div class="product-price">{{ product.price | money }}</div>
+      <div class="rte product-copy">{{ product.description }}</div>
+
+      {% form 'product', product, class: 'product-form', data-product-form: '' %}
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <fieldset class="product-option-group">
+              <legend>{{ option.name }}</legend>
+              <div class="chip-group">
+                {% for value in option.values %}
+                  <label class="chip-option">
+                    <input
+                      type="radio"
+                      name="options[{{ option.name | escape }}]"
+                      value="{{ value | escape }}"
+                      {% if option.selected_value == value %}checked{% endif %}
+                    >
+                    <span>{{ value }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+            </fieldset>
+          {% endfor %}
+        {% endunless %}
+
+        <div class="product-upgrades" data-product-configurator>
+          <div class="product-upgrades__row">
+            <label for="finish-select">Finish</label>
+            <select id="finish-select" name="properties[Finish]">
+              <option value="Standard">Standard</option>
+              <option value="Fine sanding">Fine sanding</option>
+              <option value="Paint-ready">Paint-ready</option>
+              <option value="Premium showroom finish">Premium showroom finish</option>
+            </select>
+          </div>
+          <div class="product-upgrades__row">
+            <label for="lead-time-select">Lead time</label>
+            <select id="lead-time-select" name="properties[Lead time]">
+              <option value="Standard production">Standard production</option>
+              <option value="Rush 72h">Rush 72h</option>
+              <option value="Priority 24h quote">Priority 24h quote</option>
+            </select>
+          </div>
+          <div class="product-upgrades__row">
+            <label for="project-notes">Project notes</label>
+            <textarea id="project-notes" name="properties[Project notes]" rows="4" placeholder="Color, target use case, tolerance, finishing notes, or companion parts."></textarea>
+          </div>
+        </div>
+
+        <div class="product-form__actions">
+          <label class="quantity-field" for="Quantity-{{ section.id }}">
+            <span>Qty</span>
+            <input id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+          </label>
+          <button class="button button--primary" type="submit">Add to cart</button>
+        </div>
+      {% endform %}
+
+      <div class="product-trust-grid">
+        {% if section.settings.show_material_guide %}
+          <article>
+            <strong>Material guidance</strong>
+            <p>{% if material_guide != blank %}{{ material_guide }}{% else %}Use metafields to surface recommended materials like PETG, ASA, nylon, or resin here.{% endif %}</p>
+          </article>
+        {% endif %}
+        {% if section.settings.show_lead_time %}
+          <article>
+            <strong>Lead time</strong>
+            <p>{% if lead_time != blank %}{{ lead_time }}{% else %}Display your typical turnaround by product or material with a product metafield.{% endif %}</p>
+          </article>
+        {% endif %}
+        <article>
+          <strong>Need custom work?</strong>
+          <p><a href="/pages/{{ section.settings.quote_page }}">Request a quote for STL-based parts, production runs, or one-off fabrication.</a></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product 3D",
+  "settings": [
+    { "type": "checkbox", "id": "show_material_guide", "label": "Show material guide", "default": true },
+    { "type": "checkbox", "id": "show_lead_time", "label": "Show lead time", "default": true },
+    { "type": "text", "id": "quote_page", "label": "Quote page handle", "default": "custom-quote" }
+  ]
+}
+{% endschema %}
