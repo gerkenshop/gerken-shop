@@ -63,8 +63,9 @@ Optional if you use a fixed remote theme:
 
 ## 5. GitHub Actions behavior
 
-- pushes to `main` can deploy the theme
-- manual workflow dispatch can push or publish based on inputs
+- pushes to `main` run validation and theme packaging only
+- theme deployment is manual through `Deploy Shopify Theme`
+- manual workflow dispatch can push unpublished changes or publish live based on inputs
 - pull requests can still run packaging and validation checks
 
 ## 6. Shopify admin connection

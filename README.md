@@ -95,6 +95,11 @@ Helper scripts:
 - `powershell -ExecutionPolicy Bypass -File .\scripts\init-repo.ps1 -RemoteUrl https://github.com/YOUR_ACCOUNT/YOUR_REPO.git`
 - `powershell -ExecutionPolicy Bypass -File .\scripts\deploy-theme.ps1 -Environment staging`
 
+GitHub Actions now use a safer flow:
+
+- `Theme Quality` runs automatically on pushes and pull requests
+- `Deploy Shopify Theme` runs only when triggered manually and required Shopify secrets exist
+
 This is not a full embedded Shopify app yet. It is the local scaffold you can extend into:
 
 - a Shopify app proxy endpoint

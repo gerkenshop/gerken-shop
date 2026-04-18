@@ -11,9 +11,10 @@ on:
         description: Deployment target
         required: true
         default: staging
-  push:
-    branches:
-      - main
+
+concurrency:
+  group: shopify-theme-deploy-${{ github.event.inputs.environment || 'staging' }}
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -36,7 +37,23 @@ jobs:
       - name: Validate JSON config
         run: npm run check:json
 
+      - name: Verify Shopify deployment secrets
+        shell: bash
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          if [ -z "$SHOPIFY_STORE" ]; then
+            echo "Missing GitHub secret: SHOPIFY_STORE"
+            exit 1
+          fi
+          if [ -z "$SHOPIFY_CLI_THEME_TOKEN" ]; then
+            echo "Missing GitHub secret: SHOPIFY_CLI_THEME_TOKEN"
+            exit 1
+          fi
+
       - name: Deploy unpublished or update existing theme
+        shell: bash
         env:
           SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
